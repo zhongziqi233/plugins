@@ -57,6 +57,7 @@ function drawHeatmap(){
       }
       return radialGradient
     }
+
     // rendering points of heatmap
     this.clearTimers();
     for(let i = 0; i < heatSites.length; i++) {
@@ -83,6 +84,7 @@ function drawHeatmap(){
     }
 }
 
+// create a canvas
 function createCanvas(id) {
     let mapCanvas = document.getElementById(id);
     if (mapCanvas) {
