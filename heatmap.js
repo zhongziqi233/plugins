@@ -9,15 +9,19 @@ function drawHeatmap(){
     // creat a new canvas
     const canvas = this.createCanvas("Heatmap");
     var context = canvas.getContext("2d");
-    var zoomLevel = this.map.getZoom();  // mapbox's map
+
+    // 'map' is an element of mapbox
+    var zoomLevel = this.map.getZoom();  
     var radiuScale = d3.scaleLinear()
       .domain([1, 17])
       .range([20, 50])
     var radius = radiuScale(zoomLevel);
+
     /*
       'values' was an array of the needed value of the heatmap
       values = [x, y...]
     */
+
     // get the maxium and minium of values
     var max = Math.floor(Math.max.apply(null, this.values) * 100) / 100;
     var min = Math.floor(Math.min.apply(null, this.values) * 100) / 100;
@@ -26,6 +30,7 @@ function drawHeatmap(){
     var sortId = this.sortId;
 
     var heatSites = []
+    
     /* 
       'locData' was an array of the lng & lat attribute of each points
       locData = [{lng: x, lat: y},{lng: x, lat: y}...]
